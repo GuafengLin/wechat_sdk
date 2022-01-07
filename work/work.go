@@ -7,6 +7,7 @@ import (
 	"github.com/silenceper/wechat/v2/work/kf"
 	"github.com/silenceper/wechat/v2/work/msgaudit"
 	"github.com/silenceper/wechat/v2/work/oauth"
+	"github.com/silenceper/wechat/v2/work/user"
 )
 
 // Work 企业微信
@@ -42,4 +43,9 @@ func (wk *Work) GetMsgAudit() (*msgaudit.Client, error) {
 // GetKF get kf
 func (wk *Work) GetKF() (*kf.Client, error) {
 	return kf.NewClient(wk.ctx.Config)
+}
+
+// GetUser get user
+func (wk *Work) GetUser() *user.User {
+	return user.NewUser(wk.ctx)
 }
